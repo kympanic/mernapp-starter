@@ -2,13 +2,10 @@ const mongoose = require("mongoose");
 const { faker } = require("@faker-js/faker");
 const UserModel = require("../mongodb/models/User");
 
-mongoose.connect(
-	"mongodb+srv://hanuelai:hWsjZ6BasbOLPsyo@cluster0.xen9f4y.mongodb.net/?retryWrites=true&w=majority",
-	{
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-	}
-);
+mongoose.connect("mongourlgoeshere", {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+});
 
 const generateFakeUser = () => {
 	return {
