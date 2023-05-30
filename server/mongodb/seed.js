@@ -1,17 +1,20 @@
 const mongoose = require("mongoose");
 const { faker } = require("@faker-js/faker");
 const UserModel = require("../mongodb/models/User");
+const bcrypt = require("bcryptjs");
 
-mongoose.connect("mongourlgoeshere", {
+mongoose.connect("mongourlhere", {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 });
+
+const hashedPassword = bcrypt.hashSync(faker.internet.password("password"));
 
 const generateFakeUser = () => {
 	return {
 		name: faker.person.fullName(),
 		email: faker.internet.email(),
-		password: faker.internet.password(),
+		password: hashedPassword,
 	};
 };
 
