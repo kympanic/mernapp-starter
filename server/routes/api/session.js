@@ -4,12 +4,10 @@ const bcrypt = require("bcryptjs");
 const { setTokenCookie, restoreUser } = require("../../utils/auth");
 const UserModel = require("../../mongodb/models/User");
 
+// login
 router.post("/", async (req, res, next) => {
 	const { credential, password } = req.body;
-
-	console.log(credential, password);
 	const user = await UserModel.findOne({ email: credential });
-	console.log(user, "this is the user");
 	// if (!user || !bcrypt.compareSync(password, user.password.toString())) {
 	// 	const err = new Error("Login failed");
 	// 	err.status = 401;
@@ -33,6 +31,14 @@ router.post("/", async (req, res, next) => {
 
 	return res.json({
 		user: safeUser,
+	});
+});
+
+// logout
+router.delete("/", (_req, res) => {
+	res.clearCookie("token");
+	return res.json({
+		message: "success",
 	});
 });
 
