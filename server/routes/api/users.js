@@ -14,21 +14,33 @@ router.post("/", async (req, res) => {
 		const existingUser = await UserModel.findOne({ email });
 		if (existingUser) {
 			// Email address already exists
-			return res
-				.status(400)
-				.json({ error: "Email address already exists" });
+			const err = new Error("Email failed");
+			err.status = 400;
+			err.title = "Email already exists";
+			err.errors = {
+				credential: "Email already exists",
+			};
+			res.json(err);
 		}
 		//Check if user included name or password
 		if (!name || !password) {
-			return res
-				.status(400)
-				.json({ error: "Please input your name/password" });
+			const err = new Error("No name or password");
+			err.status = 400;
+			err.title = "Input needed for name or password";
+			err.errors = {
+				credential: "Input needed for name or password",
+			};
+			res.json(err);
 		}
 		//Check password length
 		if (password.length < 6) {
-			return res.status(400).json({
-				error: "Password length must be at least 6 characters",
-			});
+			const err = new Error("Fix password length");
+			err.status = 400;
+			err.title = "Password length must be greater than 6 characters";
+			err.errors = {
+				credential: "Password length must be greater than 6 characters",
+			};
+			res.json(err);
 		}
 		const newUser = new UserModel({
 			name,

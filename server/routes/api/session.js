@@ -8,17 +8,11 @@ const UserModel = require("../../mongodb/models/User");
 router.post("/", async (req, res, next) => {
 	const { credential, password } = req.body;
 	const user = await UserModel.findOne({ email: credential });
-	// if (!user || !bcrypt.compareSync(password, user.password.toString())) {
-	// 	const err = new Error("Login failed");
-	// 	err.status = 401;
-	// 	err.title = "Login Failed";
-	// }
-	// for testing purposes we will just check password bc we do not have a password to compare in the mongodb
-	if (!user || password !== user.password) {
+	if (!user || !bcrypt.compareSync(password, user.password)) {
 		const err = new Error("Login failed");
 		err.status = 401;
 		err.title = "Login Failed";
-		err.errors = { credential: "The provided credential were invalid" };
+		err.errors = { credential: "The provided credentials were invalid." };
 		return next(err);
 	}
 	const safeUser = {
@@ -40,6 +34,21 @@ router.delete("/", (_req, res) => {
 	return res.json({
 		message: "success",
 	});
+});
+
+// Restore session user
+router.get("/", (req, res) => {
+	const { user } = req;
+	if (user) {
+		const safeUser = {
+			id: user.id,
+			email: user.email,
+			name: user.name,
+		};
+		return res.json({
+			user: safeUser,
+		});
+	} else return res.json({ user: null });
 });
 
 module.exports = router;
