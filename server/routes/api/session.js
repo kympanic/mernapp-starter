@@ -1,12 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
-const { setTokenCookie, restoreUser } = require("../../utils/auth");
+const { setTokenCookie } = require("../../utils/auth");
 const UserModel = require("../../mongodb/models/User");
+const { validateLogin } = require("../../utils/validation");
 
 // login
-router.post("/", async (req, res, next) => {
+router.post("/", validateLogin, async (req, res, next) => {
 	const { credential, password } = req.body;
+
 	const user = await UserModel.findOne({ email: credential });
 	if (!user || !bcrypt.compareSync(password, user.password)) {
 		const err = new Error("Login failed");
