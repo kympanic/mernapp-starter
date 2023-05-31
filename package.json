@@ -19,6 +19,5 @@
 	"bugs": {
 		"url": "https://github.com/kympanic/mernapp-starter/issues"
 	},
-	"homepage": "https://github.com/kympanic/mernapp-starter#readme",
-	"proxy": "http://localhost:8000"
+	"homepage": "https://github.com/kympanic/mernapp-starter#readme"
 }

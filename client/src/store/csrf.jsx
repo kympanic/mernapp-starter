@@ -20,3 +20,7 @@ export async function csrfFetch(url, options = {}) {
 	// else we just return the response
 	return res;
 }
+
+export function restoreCSRF() {
+	return csrfFetch("/api/csrf/restore");
+}
