@@ -8,10 +8,11 @@ const handleValidationErrors = (req, _res, next) => {
 	if (!validationErrors.isEmpty()) {
 		const errors = {};
 		console.log(validationErrors, "this is the vaidation errors");
-		validationErrors
-			.array()
-			.forEach((error) => (errors[error.title] = error.msg));
-
+		validationErrors.array().forEach((error) => {
+			if (!errors[error.param]) {
+				errors[error.param] = error.msg;
+			}
+		});
 		const err = Error("Bad request.");
 		err.errors = errors;
 		err.status = 400;
@@ -25,7 +26,6 @@ const handleValidationErrors = (req, _res, next) => {
 const validateLogin = [
 	check("credential")
 		.exists({ checkFalsy: true })
-		.notEmpty()
 		.withMessage("Please provide a valid email."),
 	check("password")
 		.exists({ checkFalsy: true })
