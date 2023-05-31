@@ -50,13 +50,7 @@ const LoginFormPage = () => {
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 					</label>
-					{errors && (
-						<p>
-							{errors.credentials ||
-								errors.undefined ||
-								errors.credential}
-						</p>
-					)}
+					{errors && <p>{Object.values(errors)}</p>}
 					<button type="submit">Log In</button>
 				</form>
 			</div>
