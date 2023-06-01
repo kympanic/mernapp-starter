@@ -22,7 +22,7 @@ router.post("/", validateLogin, async (req, res, next) => {
 		email: user.email,
 		name: user.name,
 	};
-	await setTokenCookie(res, safeUser);
+	setTokenCookie(res, safeUser);
 	return res.json({
 		user: safeUser,
 	});
