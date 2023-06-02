@@ -1,15 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
 import * as sessionActions from "../store/session";
-
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 function ProfileButton({ user }) {
-	const dispatch = useDispatch();
 	const [showMenu, setShowMenu] = useState(false);
-	const ulRef = useRef();
+	const dispatch = useDispatch();
 
 	const openMenu = () => {
-		if (showMenu) return;
-		setShowMenu(true);
+		setShowMenu(!showMenu);
 	};
 
 	const logout = (e) => {
@@ -17,21 +15,20 @@ function ProfileButton({ user }) {
 		dispatch(sessionActions.logout());
 	};
 
-	const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
-
 	return (
-		<>
+		<div>
 			<button onClick={openMenu}>
 				<i className="fas fa-user-circle" />
 			</button>
-			<ul className={ulClassName} ref={ulRef}>
-				<li>{user.name}</li>
-				<li>{user.email}</li>
-				<li>
+			{showMenu ? (
+				<div>
+					<Link> {user.email} </Link>
 					<button onClick={logout}>Log Out</button>
-				</li>
-			</ul>
-		</>
+				</div>
+			) : (
+				<></>
+			)}
+		</div>
 	);
 }
 

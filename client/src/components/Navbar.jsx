@@ -5,31 +5,24 @@ import ProfileButton from "./ProfileButton";
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector((state) => state.session.user);
 
-	let sessionLinks;
-	if (sessionUser) {
-		sessionLinks = (
-			<li>
-				<ProfileButton user={sessionUser} />
-			</li>
-		);
-	} else {
-		sessionLinks = (
-			<li>
-				<Link to="/login">Log In</Link>
-				<Link to="/signup">Sign Up</Link>
-			</li>
-		);
-	}
-
 	return (
-		<ul>
-			<li>
+		<div>
+			<div>
 				<Link exact to="/">
 					Home
 				</Link>
-			</li>
-			{isLoaded && sessionLinks}
-		</ul>
+			</div>
+			<div>
+				{sessionUser ? (
+					<div>{<ProfileButton user={sessionUser} />}</div>
+				) : (
+					<div>
+						<Link to="/login">Log In</Link>
+						<Link to="/signup">Sign Up</Link>
+					</div>
+				)}
+			</div>
+		</div>
 	);
 }
 
