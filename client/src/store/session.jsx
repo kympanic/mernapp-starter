@@ -25,7 +25,6 @@ export const login = (user) => async (dispatch) => {
 			password,
 		}),
 	});
-	console.log(response, "is it getting here?");
 	const data = await response.json();
 	dispatch(setUser(data.user));
 	return response;
@@ -42,10 +41,16 @@ export const signup = (user) => async (dispatch) => {
 			password,
 		}),
 	});
-	console.log(response, "is it getting here?");
 	const data = await response.json();
-	console.log(data, "what is the data being sent to set user?");
 	dispatch(setUser(data.user));
+	return response;
+};
+
+export const logout = () => async (dispatch) => {
+	const response = await csrfFetch("/api/session", {
+		method: "DELETE",
+	});
+	dispatch(removeUser());
 	return response;
 };
 
