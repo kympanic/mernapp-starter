@@ -4,10 +4,10 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"render-postbuild": "npm run build --prefix frontend",
-		"install": "npm --prefix backend install backend && npm --prefix frontend install frontend",
-		"start": "npm start --prefix backend",
-		"build": "npm run build --prefix backend"
+		"render-postbuild": "npm run build --prefix client",
+		"install": "npm --prefix server install server && npm --prefix client install client",
+		"start": "npm start --prefix server",
+		"build": "npm run build --prefix server"
 	},
 	"repository": {
 		"type": "git",
