@@ -1,0 +1,47 @@
+.navBody {
+	font-family: "Montserrat", sans-serif;
+}
+
+.navMenu {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 50px;
+	background: #272727;
+}
+
+.homeLink {
+	font-size: larger;
+	color: #f6f4e6;
+	text-decoration: none;
+	padding-right: 20px;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+.homeLink:hover {
+	color: #6469ff;
+}
+
+.loginLink {
+	font-size: larger;
+	color: #f6f4e6;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+.loginLink:hover {
+	color: #6469ff;
+}
+
+.signupLink {
+	font-size: larger;
+	color: #f6f4e6;
+	text-decoration: none;
+	padding-left: 20px;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+.signupLink:hover {
+	color: #6469ff;
+}
