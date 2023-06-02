@@ -14,12 +14,13 @@ router.post("/", validateSignup, validateUserEmail, async (req, res) => {
 		email,
 		password: hashedPassword,
 	});
-	newUser.save();
+	await newUser.save();
 	const safeUser = {
 		id: newUser._id,
 		email: newUser.email,
 		name: newUser.name,
 	};
+
 	setTokenCookie(res, safeUser);
 	return res.json({
 		user: safeUser,
