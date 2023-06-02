@@ -2,6 +2,7 @@ import { useState } from "react";
 import * as sessionActions from "../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
+import "../css/AuthForm.css";
 
 const LoginFormPage = () => {
 	const dispatch = useDispatch();
@@ -28,34 +29,76 @@ const LoginFormPage = () => {
 	};
 
 	return (
-		<div>
-			<div>
-				<h1>Log In</h1>
-			</div>
-			<div>
-				<form onSubmit={handleLogin}>
-					<label>
-						Email:
-						<input
-							type="text"
-							value={credential}
-							onChange={(e) => setCredential(e.target.value)}
-						/>
+		<div className="formWrapper">
+			<form className="form" onSubmit={handleLogin}>
+				<div className="title">Welcome Back</div>
+				<div className="subtitle">Log In</div>
+				<div className="input-container ic1">
+					<input
+						id="credential"
+						className="input"
+						type="email"
+						placeholder=" "
+						value={credential}
+						onChange={(e) => setCredential(e.target.value)}
+						required
+					/>
+					<div className="cut"></div>
+					<label htmlFor="credential" className="placeholder">
+						Email
 					</label>
-					<label>
-						Password:
-						<input
-							type="text"
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
-						/>
+				</div>
+				<div className="input-container ic2">
+					<input
+						id="password"
+						className="input"
+						type="password"
+						placeholder=" "
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+						required
+					/>
+					<div className="cut cut-short"></div>
+					<label htmlFor="email" className="placeholder">
+						Password
 					</label>
-					{errors && <p>{Object.values(errors)}</p>}
-					<button type="submit">Log In</button>
-				</form>
-			</div>
+				</div>
+				<button type="submit" className="submit">
+					Submit
+				</button>
+				{errors && (
+					<p className="errorMessages">{Object.values(errors)}</p>
+				)}
+			</form>
 		</div>
 	);
 };
 
 export default LoginFormPage;
+// <div>
+// 	<div>
+// 		<h1>Log In</h1>
+// 	</div>
+// 	<div>
+// 		<form onSubmit={handleLogin}>
+// 			<label>
+// 				Email:
+// 				<input
+// 					type="text"
+// 					value={credential}
+// 					onChange={(e) => setCredential(e.target.value)}
+// 				/>
+// 			</label>
+// 			<label>
+// 				Password:
+// 				<input
+// 					type="text"
+// 					value={password}
+// 					onChange={(e) => setPassword(e.target.value)}
+// 				/>
+// 			</label>
+// 			{errors && <p>{Object.values(errors)}</p>}
+// 			<button type="submit">Log In</button>
+// 		</form>
+// 	</div>
+// </div>
