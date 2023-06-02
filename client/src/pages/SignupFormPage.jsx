@@ -27,6 +27,7 @@ const SignupFormPage = () => {
 				})
 			).catch(async (res) => {
 				const data = await res.json();
+				console.log(data, "this is the data");
 				if (data && data.message) {
 					setErrors(data.errors);
 				}
@@ -54,7 +55,6 @@ const SignupFormPage = () => {
 							required
 						/>
 					</label>
-					{errors.email && <p>{errors.email}</p>}
 					<label>
 						Name:
 						<input
@@ -64,7 +64,6 @@ const SignupFormPage = () => {
 							required
 						/>
 					</label>
-					{errors.username && <p>{errors.username}</p>}
 					<label>
 						Password
 						<input
@@ -74,7 +73,6 @@ const SignupFormPage = () => {
 							required
 						/>
 					</label>
-					{errors.password && <p>{errors.password}</p>}
 					<label>
 						Confirm Password
 						<input
@@ -85,6 +83,7 @@ const SignupFormPage = () => {
 						/>
 					</label>
 					{errors.confirmPassword && <p>{errors.confirmPassword}</p>}
+					{errors && <p>{Object.values(errors)}</p>}
 					<button type="submit">Sign Up</button>
 				</form>
 			</div>
