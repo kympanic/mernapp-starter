@@ -29,9 +29,9 @@ const seedDatabase = async (numUsers) => {
 		}
 
 		await UserModel.insertMany(users);
-		console.log(`${numUsers} fake users inserted into the database.`);
+		// console.log(`${numUsers} fake users inserted into the database.`);
 	} catch (error) {
-		console.error("Error seeding the database:", error);
+		// console.error("Error seeding the database:", error);
 	} finally {
 		mongoose.disconnect();
 	}

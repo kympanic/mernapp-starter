@@ -27,7 +27,6 @@ const SignupFormPage = () => {
 				})
 			).catch(async (res) => {
 				const data = await res.json();
-				console.log(data, "this is the data");
 				if (data && data.message) {
 					setErrors(data.errors);
 				}
