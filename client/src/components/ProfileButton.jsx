@@ -21,8 +21,8 @@ function ProfileButton({ user }) {
 				<i className="fas fa-user-circle" />
 			</button>
 			{showMenu ? (
-				<div>
-					<Link> {user.email} </Link>
+				<div className="dropDownMenu">
+					<Link className="loggedInEmail"> {user.email} </Link>
 					<button onClick={logout}>Log Out</button>
 				</div>
 			) : (

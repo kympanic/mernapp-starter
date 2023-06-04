@@ -112,55 +112,6 @@ const SignupFormPage = () => {
 				)}
 			</form>
 		</div>
-
-		// <div>
-		// 	<div>
-		// 		<h1>Sign UP</h1>
-		// 	</div>
-		// 	<div>
-		// 		<form onSubmit={handleSignup}>
-		// 			<label>
-		// 				Email:
-		// 				<input
-		// 					type="text"
-		// 					value={email}
-		// 					onChange={(e) => setEmail(e.target.value)}
-		// 					required
-		// 				/>
-		// 			</label>
-		// 			<label>
-		// 				Name:
-		// 				<input
-		// 					type="text"
-		// 					value={name}
-		// 					onChange={(e) => setName(e.target.value)}
-		// 					required
-		// 				/>
-		// 			</label>
-		// 			<label>
-		// 				Password
-		// 				<input
-		// 					type="password"
-		// 					value={password}
-		// 					onChange={(e) => setPassword(e.target.value)}
-		// 					required
-		// 				/>
-		// 			</label>
-		// 			<label>
-		// 				Confirm Password
-		// 				<input
-		// 					type="password"
-		// 					value={confirmPassword}
-		// 					onChange={(e) => setConfirmPassword(e.target.value)}
-		// 					required
-		// 				/>
-		// 			</label>
-		// 			{errors.confirmPassword && <p>{errors.confirmPassword}</p>}
-		// 			{errors && <p>{Object.values(errors)}</p>}
-		// 			<button type="submit">Sign Up</button>
-		// 		</form>
-		// 	</div>
-		// </div>
 	);
 };
 

@@ -75,30 +75,3 @@ const LoginFormPage = () => {
 };
 
 export default LoginFormPage;
-// <div>
-// 	<div>
-// 		<h1>Log In</h1>
-// 	</div>
-// 	<div>
-// 		<form onSubmit={handleLogin}>
-// 			<label>
-// 				Email:
-// 				<input
-// 					type="text"
-// 					value={credential}
-// 					onChange={(e) => setCredential(e.target.value)}
-// 				/>
-// 			</label>
-// 			<label>
-// 				Password:
-// 				<input
-// 					type="text"
-// 					value={password}
-// 					onChange={(e) => setPassword(e.target.value)}
-// 				/>
-// 			</label>
-// 			{errors && <p>{Object.values(errors)}</p>}
-// 			<button type="submit">Log In</button>
-// 		</form>
-// 	</div>
-// </div>
