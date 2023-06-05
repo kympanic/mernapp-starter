@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import * as sessionActions from "../store/session";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import "../css/ProfileButton.css";
+
 function ProfileButton({ user }) {
 	const [showMenu, setShowMenu] = useState(false);
 	const dispatch = useDispatch();
@@ -16,14 +18,16 @@ function ProfileButton({ user }) {
 	};
 
 	return (
-		<div>
-			<button onClick={openMenu}>
+		<div className="dropdown">
+			<button className="profileButton" onClick={openMenu}>
 				<i className="fas fa-user-circle" />
 			</button>
 			{showMenu ? (
-				<div className="dropDownMenu">
-					<Link className="loggedInEmail"> {user.email} </Link>
-					<button onClick={logout}>Log Out</button>
+				<div className="dropdownMenu">
+					<Link className="dropdownContent"> {user.email} </Link>
+					<Link className="dropdownContent" onClick={logout}>
+						Log Out
+					</Link>
 				</div>
 			) : (
 				<></>

@@ -1,0 +1,37 @@
+.profileButton {
+	font-size: 25px;
+	width: 100px;
+	color: #6469ff;
+	cursor: pointer;
+	margin-left: 100px;
+	border: none;
+	border-radius: 5px;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdownMenu {
+	margin-left: 100px;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	background-color: #f1f1f1;
+	width: fit-content;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+.dropdownContent {
+	font-size: larger;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-decoration: none;
+	color: black;
+}
+
+.dropdownContent:hover {
+	color: #6469ff;
+}
