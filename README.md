@@ -44,3 +44,11 @@ This MERN stack application is ready for deployment to Render. It has user authe
 - Backend devDependecies
   - @faker-js/faker
   - nodemon
+
+## Screenshots
+Login and Register
+<img width="1049" alt="Screen Shot 2023-06-05 at 1 33 26 PM" src="https://github.com/kympanic/mernapp-starter/assets/98551224/817abff8-9db9-458e-bf17-d2d6bc6e8ae0">
+<img width="1001" alt="Screen Shot 2023-06-05 at 1 35 58 PM" src="https://github.com/kympanic/mernapp-starter/assets/98551224/2b88e70f-bcdf-4d87-8b23-ec367d10ad03">
+
+
+
