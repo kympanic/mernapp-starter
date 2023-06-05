@@ -2,7 +2,7 @@
 
 By [Daniel Yoo](https://kympanic.github.io/)
 
-This MERN stack application is ready for deployment to Render. It has user authentication,authorization and forms for logging in and out. This no-fuss application was created as a basic template to easily create fullstack applications.
+This MERN stack application is ready for deployment to Render. It has user authentication,authorization and forms for logging in and out. The project was a great refresher course from what I've learned at App Academy and helped me learn a NoSQL database like MongoDB. This no-fuss application was created as a basic template to easily create fullstack applications.
 
 ## Technologies Used
 
