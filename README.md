@@ -113,7 +113,7 @@ Step 1:
 - In the build script add "npm install && npm run render-postbuild && npm run build"
 - Enter npm start in the Start command input
 
-Step 3:
+Step 2:
 - Click on the "Advanced" button at the bottom of the form to configure the environment variables your application needs to access to run properly. In the development environment, you have been securing these variables in the .env file, which has been removed from source control. In this step, you will need to input the keys and values for the environment variables you need for production into the Render GUI.
 - Add the following keys and values in the Render GUI form:
   - JWT_SECRET (click "Generate" to generate a secure secret for production)
