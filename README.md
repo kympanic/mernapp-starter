@@ -77,6 +77,12 @@ This MERN stack application is ready for deployment to Render. It has user authe
 - requireAuth: Requires a session user to be authenticated before accessing a route.
 ![Screen Shot 2023-06-05 at 5 04 32 PM](https://github.com/kympanic/mernapp-starter/assets/98551224/db8c1f4d-f364-4990-80de-6afc5482038c)
 
+### MongoDB
+
+- faker-js: To seed initial data in MongoDB to test out routes. 
+![Screen Shot 2023-06-05 at 5 11 06 PM](https://github.com/kympanic/mernapp-starter/assets/98551224/e934aa60-9fd4-44a7-a45d-dfc23e272606)
+
+
 
 ## Frontend Snippets
 
