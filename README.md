@@ -100,5 +100,25 @@ This MERN stack application is ready for deployment to Render. It has user authe
 
 ## Frontend Snippets
 
+csrfFetch: The Express backend server is configured to be CSRF protected and will only accept requests that have the right CSRF secret token in a header and the right CSRF token value in a cookie. To make fetch requests with any HTTP verb other than GET, the the header on the request is set the value of the XSRF-TOKEN cookie. 
 
+![Screen Shot 2023-06-05 at 5 34 22 PM](https://github.com/kympanic/mernapp-starter/assets/98551224/f00024da-5df7-42f1-bb38-e9def8172f38)
 
+## Deployment to Render
+
+Step 1:
+- From the Dashboard, click on the "New +" button in the navigation bar, and click on "Web Service" to create the application that will be deployed. 
+- Look for the name of the application you want to deploy, and click the "Connect" button to the right of the name.
+- Fill out the form to configure the build and start commands, as well as add the environment variables to properly deploy the application.
+- In the build script add "npm install && npm run render-postbuild && npm run build"
+- Enter npm start in the Start command input
+
+Step 3:
+- Click on the "Advanced" button at the bottom of the form to configure the environment variables your application needs to access to run properly. In the development environment, you have been securing these variables in the .env file, which has been removed from source control. In this step, you will need to input the keys and values for the environment variables you need for production into the Render GUI.
+- Add the following keys and values in the Render GUI form:
+  - JWT_SECRET (click "Generate" to generate a secure secret for production)
+  - JWT_EXPIRES_IN (copy value from local .env file)
+  - NODE_ENV production
+  - MONGODB_URL (value of your url from MongoDb from mongodb/atlas)
+ 
+ # You are now ready to deploy. Have Fun!
