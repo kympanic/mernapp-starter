@@ -69,20 +69,34 @@ This MERN stack application is ready for deployment to Render. It has user authe
 ### User Auth Middlewares
 
 - setTokenCookie: Sets the JWT cookie after a user is logged in or signed up. It takes in the response and the session user and generates a JWT using the imported secret. After the JWT is created, it's set to an HTTP-only cookie on the response as a token cookie.
-![Screen Shot 2023-06-05 at 2 07 59 PM](https://github.com/kympanic/mernapp-starter/assets/98551224/4c4901eb-2d3d-4f28-add6-ef7802c10a37)
+- ![Screen Shot 2023-06-05 at 2 07 59 PM](https://github.com/kympanic/mernapp-starter/assets/98551224/4c4901eb-2d3d-4f28-add6-ef7802c10a37)
 
 - restoreUser: Certain routes will require the identity of the current session user. This function will restore the session user based on the contents of the JWT cookie. This middleware function will verify and parse the JWT's payload and search the database for a User with the id in the payload. Only the email and id will be returned in the search(not the password). If there is a User found in the search, then the user is saved to the key of user ounto the req.user. I fthere is an error verifying the JWT or a User cannot be found, then the token cookie is cleared and req.user is set to null.
-![Screen Shot 2023-06-05 at 2 13 45 PM](https://github.com/kympanic/mernapp-starter/assets/98551224/fbba26e4-fc5a-400d-9cb1-351021f8e757)
+= ![Screen Shot 2023-06-05 at 2 13 45 PM](https://github.com/kympanic/mernapp-starter/assets/98551224/fbba26e4-fc5a-400d-9cb1-351021f8e757)
 
 - requireAuth: Requires a session user to be authenticated before accessing a route.
-![Screen Shot 2023-06-05 at 5 04 32 PM](https://github.com/kympanic/mernapp-starter/assets/98551224/db8c1f4d-f364-4990-80de-6afc5482038c)
+- ![Screen Shot 2023-06-05 at 5 04 32 PM](https://github.com/kympanic/mernapp-starter/assets/98551224/db8c1f4d-f364-4990-80de-6afc5482038c)
 
 ### MongoDB
 
 - faker-js: To seed initial data in MongoDB to test out routes. 
-![Screen Shot 2023-06-05 at 5 11 06 PM](https://github.com/kympanic/mernapp-starter/assets/98551224/e934aa60-9fd4-44a7-a45d-dfc23e272606)
+- ![Screen Shot 2023-06-05 at 5 11 06 PM](https://github.com/kympanic/mernapp-starter/assets/98551224/e934aa60-9fd4-44a7-a45d-dfc23e272606)
 
+- UserModel: Simple Schema for Users
+- ![Screen Shot 2023-06-05 at 5 13 27 PM](https://github.com/kympanic/mernapp-starter/assets/98551224/d51821e4-e744-4e8a-a9db-fa7838a363eb)
 
+### API
+
+- Login: If user password is correct, setTokenCookie is called and returns a JSON response with the user's non-sensitive information. 
+- ![Screen Shot 2023-06-05 at 5 28 40 PM](https://github.com/kympanic/mernapp-starter/assets/98551224/1cdbd77b-259b-4b0b-b05f-342224b4ff4d)
+
+### Error Handling Middleware
+
+- First error handler will catch any requests that don't match any of the routes defined and create a server error with a status code of 404.
+- ![Screen Shot 2023-06-05 at 5 18 01 PM](https://github.com/kympanic/mernapp-starter/assets/98551224/7832ae98-56b3-4ad2-a2d5-47ae33ab4b78)
+
+- Second error handler formats all the errors before returning a JSON response. It will include the error message, the error messages as a JSON object with key-value pairs, and the error stack trace (if the environment is in development) with the status code of the error message.
+- ![Screen Shot 2023-06-05 at 5 20 55 PM](https://github.com/kympanic/mernapp-starter/assets/98551224/8d9286b5-bf41-4d70-a255-2e13301330af)
 
 ## Frontend Snippets
 
